@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atlas · Customer Admin</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">A</span><span>ATLAS<span class="brand-sub">CUSTOMER ADMIN</span></span></div>
+      <nav aria-label="Main navigation">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#members">Members</a>
+        <a href="#features">Features</a>
+        <a href="#activity">Activity</a>
+      </nav>
+      <div class="sidebar-foot"><span class="status-dot"></span> Local portfolio demo<br><small>In-memory workspace</small></div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <div><span class="eyebrow">WORKSPACE</span><h1 id="tenant-name">Customer admin</h1></div>
+        <div class="identity"><span id="actor-label">Choose an account</span><span class="avatar" id="avatar">?</span></div>
+      </header>
+      <div class="content">
+        <section class="access card" id="access">
+          <div><span class="eyebrow">ACCESS</span><h2>Open a workspace</h2><p>Choose a local demo persona or enter a bearer token supplied by your operator.</p></div>
+          <div class="access-controls"><select id="account-select" aria-label="Demo account"><option value="">Select demo account</option></select><input id="token-input" type="password" placeholder="Bearer token" aria-label="Bearer token" autocomplete="off"><button id="connect-button" class="button primary">Open workspace</button></div>
+          <p id="message" role="status" class="message"></p>
+        </section>
+        <div id="workspace" hidden>
+          <section id="overview" class="overview">
+            <div class="section-heading"><div><span class="eyebrow">OVERVIEW</span><h2>Workspace at a glance</h2></div><span class="version" id="version"></span></div>
+            <div class="stats"><article class="stat card"><span>TEAM MEMBERS</span><strong id="member-count">—</strong><small>People with workspace access</small></article><article class="stat card"><span>ACTIVE FEATURES</span><strong id="feature-count">—</strong><small>Enabled for this tenant</small></article><article class="stat card"><span>YOUR ROLE</span><strong id="role-label">—</strong><small>Effective permissions</small></article></div>
+          </section>
+          <section id="members" class="card panel"><div class="section-heading"><div><span class="eyebrow">ACCESS CONTROL</span><h2>Team members</h2><p>Manage who can access this workspace and what they can do.</p></div></div><div class="table-wrap"><table><thead><tr><th>MEMBER</th><th>ROLE</th><th>ACTIONS</th></tr></thead><tbody id="members-body"></tbody></table></div><form id="add-member" class="add-form"><input name="name" required maxlength="80" placeholder="Full name" aria-label="Full name"><input name="email" required type="email" placeholder="Email address" aria-label="Email address"><select name="role" aria-label="New member role"><option value="viewer">Viewer</option><option value="admin">Admin</option></select><button class="button primary">Add member</button></form></section>
+          <section id="features" class="card panel"><div class="section-heading"><div><span class="eyebrow">CONFIGURATION</span><h2>Feature access</h2><p>Changes apply only to this workspace.</p></div></div><div id="feature-list" class="feature-list"></div></section>
+          <section id="activity" class="card panel"><div class="section-heading"><div><span class="eyebrow">OBSERVABILITY</span><h2>Recent activity</h2><p>Metadata-only changes, newest first.</p></div></div><ol id="activity-list" class="activity-list"></ol></section>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
